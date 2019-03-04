@@ -26,6 +26,8 @@ dependency "omnibus-ctl"
 # Used by `chef-server-ctl install` to resolve download urls
 dependency "mixlib-install"
 
+dependency "license-acceptance"
+
 build do
 
   env = with_standard_compiler_flags(with_embedded_path)
