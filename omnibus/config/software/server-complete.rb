@@ -21,6 +21,9 @@ dependency "libiconv"
 
 dependency "private-chef-scripts" # assorted scripts used by installed instance
 
+# moved earlier to build gem from git rather than rubygems
+dependency "chef" # for embedded chef-client -z runs (built from master - build last)
+
 dependency "private-chef-ctl" # additional project-specific private-chef-ctl subcommands
 dependency "openresty" # load balanacer
 dependency "rb-readline" # a replacement for readline due to
