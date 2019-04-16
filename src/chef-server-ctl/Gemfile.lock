@@ -1,11 +1,11 @@
 GIT
   remote: https://github.com/chef/chef.git
-  revision: 62ea7382021593d117a78a0d5f60e39722c2e4d4
+  revision: 72e89d2b6d71e0eca6102c241f4143cc6cbe5134
   specs:
-    chef (15.0.215)
+    chef (15.0.217)
       addressable
       bundler (>= 1.10)
-      chef-config (= 15.0.215)
+      chef-config (= 15.0.217)
       chef-zero (>= 14.0.11)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
@@ -27,7 +27,7 @@ GIT
       proxifier (~> 1.0)
       syslog-logger (~> 1.6)
       uuidtools (~> 2.1.5)
-    chef-config (15.0.215)
+    chef-config (15.0.217)
       addressable
       fuzzyurl
       mixlib-config (>= 2.2.12, < 4.0)
@@ -52,10 +52,10 @@ GIT
 
 GIT
   remote: https://github.com/chef/license-acceptance.git
-  revision: ce30e80c67c18258afca9749156efd14a7d0c648
+  revision: 93652385cb08cdd789d4bbec1be36c2ec38240c2
   glob: components/ruby/*.gemspec
   specs:
-    license-acceptance (0.2.7)
+    license-acceptance (0.2.9)
       pastel (~> 0.7)
       tomlrb (~> 1.2)
       tty-box (~> 0.3)
