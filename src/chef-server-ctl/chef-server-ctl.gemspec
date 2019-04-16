@@ -45,8 +45,8 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "chef_backup" # Gemfile has us getting latest from git
   spec.add_runtime_dependency "omnibus-ctl" # Gemfile has us getting latest from git
-
-  spec.add_runtime_dependency "chef", "~> 14.11.21"
+  
+  spec.add_runtime_dependency "chef", "~> 15.0.220"
   spec.add_runtime_dependency "appbundler"
 
   spec.add_development_dependency "chefstyle"
