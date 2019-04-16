@@ -1,11 +1,38 @@
 GIT
-  remote: git@github.com:chef/license-acceptance.git
-  revision: 3935a9b594fa94e40f4307bde1f797cd50b215c2
+  remote: https://github.com/chef/chef.git
+  revision: 62ea7382021593d117a78a0d5f60e39722c2e4d4
   specs:
-    license-acceptance (0.1.0)
-      pastel (>= 0.7)
-      tty-box (>= 0.3)
-      tty-prompt (>= 0.18)
+    chef (15.0.215)
+      addressable
+      bundler (>= 1.10)
+      chef-config (= 15.0.215)
+      chef-zero (>= 14.0.11)
+      diff-lcs (~> 1.2, >= 1.2.4)
+      erubis (~> 2.7)
+      ffi (~> 1.9, >= 1.9.25)
+      ffi-libarchive
+      ffi-yajl (~> 2.2)
+      highline (~> 1.6, >= 1.6.9)
+      iniparse (~> 1.4)
+      mixlib-archive (>= 0.4, < 2.0)
+      mixlib-authentication (~> 2.1)
+      mixlib-cli (>= 1.7, < 3.0)
+      mixlib-log (>= 2.0.3, < 4.0)
+      mixlib-shellout (>= 2.4, < 4.0)
+      net-sftp (~> 2.1, >= 2.1.2)
+      net-ssh (~> 4.2)
+      net-ssh-multi (~> 1.2, >= 1.2.1)
+      ohai (~> 15.0)
+      plist (~> 3.2)
+      proxifier (~> 1.0)
+      syslog-logger (~> 1.6)
+      uuidtools (~> 2.1.5)
+    chef-config (15.0.215)
+      addressable
+      fuzzyurl
+      mixlib-config (>= 2.2.12, < 4.0)
+      mixlib-shellout (>= 2.0, < 4.0)
+      tomlrb (~> 1.2)
 
 GIT
   remote: https://github.com/chef/chef_backup.git
@@ -17,11 +44,39 @@ GIT
 
 GIT
   remote: https://github.com/chef/chef_secrets.git
-  revision: 3210d03b3ef0134f9f0fe9e820b193457bb94f32
+  revision: e43f1136ea9811b4254774af2c4191d27cf964f8
   specs:
     veil (0.3.0)
       bcrypt (~> 3.1)
       pbkdf2
+
+GIT
+  remote: https://github.com/chef/license-acceptance.git
+  revision: ce30e80c67c18258afca9749156efd14a7d0c648
+  glob: components/ruby/*.gemspec
+  specs:
+    license-acceptance (0.2.7)
+      pastel (~> 0.7)
+      tomlrb (~> 1.2)
+      tty-box (~> 0.3)
+      tty-prompt (~> 0.18)
+
+GIT
+  remote: https://github.com/chef/ohai.git
+  revision: 3cbf90d12abb2fe11bc486b87449a98ea02988d2
+  specs:
+    ohai (15.0.32)
+      chef-config (>= 12.8, < 16)
+      ffi (~> 1.9)
+      ffi-yajl (~> 2.2)
+      ipaddress
+      mixlib-cli (>= 1.7.0)
+      mixlib-config (>= 2.0, < 4.0)
+      mixlib-log (>= 2.0.1, < 4.0)
+      mixlib-shellout (>= 2.0, < 4.0)
+      plist (~> 3.1)
+      systemu (~> 2.6.4)
+      wmi-lite (~> 1.0)
 
 GIT
   remote: https://github.com/chef/omnibus-ctl.git
@@ -34,11 +89,12 @@ PATH
   specs:
     chef-server-ctl (1.0.0)
       appbundler
-      chef (~> 14.11.21)
+      chef (~> 15.0.214)
       chef_backup
       ffi-yajl (>= 1.2.0)
       highline (~> 1.6, >= 1.6.9)
       knife-opc
+      license-acceptance
       mixlib-log
       omnibus-ctl
       pg (~> 0.17, >= 0.17.1)
@@ -60,43 +116,6 @@ GEM
       mixlib-shellout (>= 2.0, < 4.0)
     ast (2.4.0)
     bcrypt (3.1.12)
-    builder (3.2.3)
-    chef (14.11.21)
-      addressable
-      bundler (>= 1.10)
-      chef-config (= 14.11.21)
-      chef-zero (>= 13.0)
-      diff-lcs (~> 1.2, >= 1.2.4)
-      erubis (~> 2.7)
-      ffi (~> 1.9, >= 1.9.25)
-      ffi-yajl (~> 2.2)
-      highline (~> 1.6, >= 1.6.9)
-      iniparse (~> 1.4)
-      mixlib-archive (>= 0.4, < 2.0)
-      mixlib-authentication (~> 2.1)
-      mixlib-cli (~> 1.7)
-      mixlib-log (~> 2.0, >= 2.0.3)
-      mixlib-shellout (~> 2.4)
-      net-sftp (~> 2.1, >= 2.1.2)
-      net-ssh (~> 4.2)
-      net-ssh-multi (~> 1.2, >= 1.2.1)
-      ohai (~> 14.0)
-      plist (~> 3.2)
-      proxifier (~> 1.0)
-      rspec-core (~> 3.5)
-      rspec-expectations (~> 3.5)
-      rspec-mocks (~> 3.5)
-      rspec_junit_formatter (~> 0.2.0)
-      serverspec (~> 2.7)
-      specinfra (~> 2.10)
-      syslog-logger (~> 1.6)
-      uuidtools (~> 2.1.5)
-    chef-config (14.11.21)
-      addressable
-      fuzzyurl
-      mixlib-config (>= 2.2.12, < 3.0)
-      mixlib-shellout (~> 2.0)
-      tomlrb (~> 1.2)
     chef-zero (14.0.12)
       ffi-yajl (~> 2.2)
       hashie (>= 2.0, < 4.0)
@@ -112,6 +131,8 @@ GEM
     equatable (0.5.0)
     erubis (2.7.0)
     ffi (1.10.0)
+    ffi-libarchive (0.4.6)
+      ffi (~> 1.0)
     ffi-yajl (2.3.1)
       libyajl2 (~> 1.2)
     fuzzyurl (0.9.0)
@@ -121,7 +142,6 @@ GEM
       domain_name (~> 0.5)
     iniparse (1.4.4)
     ipaddress (0.8.3)
-    iso8601 (0.11.0)
     jaro_winkler (1.5.2)
     knife-opc (0.4.1)
     libyajl2 (1.2.0)
@@ -132,15 +152,12 @@ GEM
     mixlib-archive (1.0.1)
       mixlib-log
     mixlib-authentication (2.1.1)
-    mixlib-cli (1.7.0)
+    mixlib-cli (2.0.3)
     mixlib-config (2.2.18)
       tomlrb
-    mixlib-log (2.0.9)
+    mixlib-log (3.0.1)
     mixlib-shellout (2.4.4)
-    multi_json (1.13.1)
     necromancer (0.4.0)
-    net-scp (1.2.1)
-      net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (4.2.0)
@@ -149,22 +166,9 @@ GEM
     net-ssh-multi (1.2.1)
       net-ssh (>= 2.6.5)
       net-ssh-gateway (>= 1.2.0)
-    net-telnet (0.1.1)
     netrc (0.11.0)
-    ohai (14.8.11)
-      chef-config (>= 12.8, < 15)
-      ffi (~> 1.9)
-      ffi-yajl (~> 2.2)
-      ipaddress
-      mixlib-cli (>= 1.7.0)
-      mixlib-config (>= 2.0, < 4.0)
-      mixlib-log (>= 2.0.1, < 4.0)
-      mixlib-shellout (>= 2.0, < 4.0)
-      plist (~> 3.1)
-      systemu (~> 2.6.4)
-      wmi-lite (~> 1.0)
-    parallel (1.13.0)
-    parser (2.6.0.0)
+    parallel (1.17.0)
+    parser (2.6.2.1)
       ast (~> 2.4.0)
     parslet (1.8.2)
     pastel (0.7.2)
@@ -188,25 +192,19 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rspec (3.7.0)
-      rspec-core (~> 3.7.0)
-      rspec-expectations (~> 3.7.0)
-      rspec-mocks (~> 3.7.0)
-    rspec-core (3.7.1)
-      rspec-support (~> 3.7.0)
-    rspec-expectations (3.7.0)
+    rspec (3.8.0)
+      rspec-core (~> 3.8.0)
+      rspec-expectations (~> 3.8.0)
+      rspec-mocks (~> 3.8.0)
+    rspec-core (3.8.0)
+      rspec-support (~> 3.8.0)
+    rspec-expectations (3.8.2)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.7.0)
-    rspec-its (1.2.0)
-      rspec-core (>= 3.0.0)
-      rspec-expectations (>= 3.0.0)
-    rspec-mocks (3.7.0)
+      rspec-support (~> 3.8.0)
+    rspec-mocks (3.8.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.7.0)
-    rspec-support (3.7.1)
-    rspec_junit_formatter (0.2.3)
-      builder (< 4)
-      rspec-core (>= 2, < 4, != 2.12.0)
+      rspec-support (~> 3.8.0)
+    rspec-support (3.8.0)
     rubocop (0.62.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -217,17 +215,6 @@ GEM
       unicode-display_width (~> 1.4.0)
     ruby-progressbar (1.10.0)
     sequel (5.19.0)
-    serverspec (2.41.3)
-      multi_json
-      rspec (~> 3.0)
-      rspec-its
-      specinfra (~> 2.72)
-    sfl (2.3)
-    specinfra (2.77.0)
-      net-scp
-      net-ssh (>= 2.7)
-      net-telnet (= 0.1.1)
-      sfl
     strings (0.1.4)
       strings-ansi (~> 0.1.0)
       unicode-display_width (~> 1.4.0)
@@ -244,7 +231,7 @@ GEM
       strings (~> 0.1.4)
       tty-cursor (~> 0.6.0)
     tty-color (0.4.3)
-    tty-cursor (0.6.0)
+    tty-cursor (0.6.1)
     tty-prompt (0.18.1)
       necromancer (~> 0.4.0)
       pastel (~> 0.7.0)
@@ -270,10 +257,12 @@ PLATFORMS
 
 DEPENDENCIES
   bundler
+  chef!
   chef-server-ctl!
   chef_backup!
   chefstyle
   license-acceptance!
+  ohai!
   omnibus-ctl!
   rake
   rspec
