@@ -30,11 +30,15 @@ dependency "ruby"
 dependency "rubygems"
 dependency "bundler"
 
+# the gem lives in  "components/ruby"
 build do
+
+  dir = "#{project_dir}/components/ruby"
+
   env = with_standard_compiler_flags(with_embedded_path)
 
-  bundle "install --without development test", env: env
+  bundle "install --without development test", cwd: dir, env: env
 
-  gem "build license-acceptance.gemspec", env: env
-  gem "install license-acceptance-*.gem", env: env
+  gem "build license-acceptance.gemspec", cwd: dir, env: env
+  gem "install license-acceptance-*.gem", cwd: dir, env: env
 end

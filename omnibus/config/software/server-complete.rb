@@ -21,6 +21,8 @@ dependency "libiconv"
 
 dependency "private-chef-scripts" # assorted scripts used by installed instance
 
+# Chef needs this to build
+dependency "license-acceptance"
 # moved earlier to build gem from git rather than rubygems
 dependency "chef" # for embedded chef-client -z runs (built from master - build last)
 
