@@ -232,23 +232,23 @@ def define_chef_server(config, attributes)
     # We do a number of things that can affect the initial configuration - by
     # running reconfigure here we can ensure that they're all completed
     # first  -- no matter what kind of pre-reconfigure provisioning we doing.
-    config.vm.provision "shell", inline: "chef-server-ctl reconfigure  --accept-license"
+    config.vm.provision "shell", inline: "chef-server-ctl reconfigure  --chef-license accept"
 
     if plugin_active?('chef-manage', attributes)
       config.vm.provision "shell", "inline": install_hack(m_installer, 'chef-manage')
-      config.vm.provision "shell", "inline": "chef-manage-ctl reconfigure --accept-license"
+      config.vm.provision "shell", "inline": "chef-manage-ctl reconfigure --chef-license accept"
     end
 
     if plugin_active?('push-jobs-server', attributes)
       backend_compat_message('push-jobs-server') if chef_backend_active?(attributes)
       config.vm.provision "shell", "inline": install_hack(ps_installer, 'opscode-push-jobs-server')
-      config.vm.provision "shell", "inline": "opscode-push-jobs-server-ctl reconfigure --accept-license"
+      config.vm.provision "shell", "inline": "opscode-push-jobs-server-ctl reconfigure --chef-license accept"
     end
 
     if plugin_active?('reporting', attributes)
       backend_compat_message('reporting') if chef_backend_active?(attributes)
       config.vm.provision "shell", "inline": install_hack(r_installer, 'opscode-reporting')
-      config.vm.provision "shell", "inline": "opscode-reporting-ctl reconfigure --accept-license"
+      config.vm.provision "shell", "inline": "opscode-reporting-ctl reconfigure --chef-license accept"
     end
 
   end
@@ -532,6 +532,7 @@ end
 
 def set_chef_zero_provisioning(config, opts)
   config.vm.provision "chef_zero" do |chef|
+    chef.arguments = "--chef-license accept"
     chef.node_name = config.vm.hostname
     chef.cookbooks_path = "cookbooks"
     chef.nodes_path = "nodes"
