@@ -156,7 +156,7 @@ include_recipe "private-chef::fix_permissions"
     # is an externally managed version. Given that bootstrap and
     # opscode-expander are not externalizable, don't need special
     # handling for them as we do in the normal disable case below.
-    runit_service service do
+    component_runit_service service do
       action :disable
     end
   else
@@ -166,7 +166,7 @@ include_recipe "private-chef::fix_permissions"
       # bootstrap isn't a service, nothing to disable.
       next if service == 'bootstrap'
       # All non-enabled services get disabled;
-      runit_service service do
+      component_runit_service service do
         action :disable
       end
     end
